@@ -45,8 +45,8 @@ export default function AdminLoginPage() {
           />
           <div className="relative z-10 mt-6 text-center">
             <div className="flex items-center justify-center gap-2 mb-2">
-              <img src="/logo_poliwangi.png" alt="AeroVision" className="w-8 h-8 object-contain" />
-              <span className="utility-xs tracking-widest text-[var(--color-mute)] font-bold">AEROVISION</span>
+              <img src="/logo_poliwangi.png" alt="AerosVision" className="w-8 h-8 object-contain" />
+              <span className="utility-xs tracking-widest text-[var(--color-mute)] font-bold">AEROSVISION</span>
             </div>
             <h2 className="heading-lg text-[var(--color-ink)]">CCTV Surveillance</h2>
             <p className="body-sm text-[var(--color-mute)] mt-1">& Analytics System</p>
@@ -64,7 +64,7 @@ export default function AdminLoginPage() {
                 <path d="M12 5v2M12 17v2M5 12h2M17 12h2"/>
               </svg>
             </div>
-            <span className="utility-sm text-[var(--color-ink)] tracking-widest font-bold">AEROVISION</span>
+            <span className="utility-sm text-[var(--color-ink)] tracking-widest font-bold">AEROSVISION</span>
           </div>
 
           <h1 className="display-lg text-[var(--color-ink)] mb-1">Welcome Back</h1>

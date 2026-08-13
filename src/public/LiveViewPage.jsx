@@ -223,7 +223,7 @@ export default function LiveViewPage() {
           <div className="w-8 h-8 rounded bg-[var(--color-surface-soft)] flex items-center justify-center border border-[var(--color-hairline)] overflow-hidden">
             <img src="/logo_poliwangi.png" alt="Logo" className="w-full h-full object-contain p-0.5" />
           </div>
-          <h1 className="heading-sm-mixed text-[var(--color-ink)] m-0">AeroVision</h1>
+          <h1 className="heading-sm-mixed text-[var(--color-ink)] m-0">AerosVision</h1>
           {/* Camera count badge */}
           {cameras.length > 0 && (
             <span className="caption-xs bg-[var(--color-surface-soft)] border border-[var(--color-hairline)] text-[var(--color-mute)] px-2 py-0.5 rounded-full font-semibold">
@@ -396,7 +396,7 @@ export default function LiveViewPage() {
 
       {/* Footer */}
       <footer className="flex-shrink-0 bg-[var(--color-surface-card)] text-center py-2 border-t border-[var(--color-hairline)] relative z-20">
-        <p className="caption-sm text-[var(--color-mute)] m-0">© 2026 AeroVision. All rights reserved.</p>
+        <p className="caption-sm text-[var(--color-mute)] m-0">© 2026 AerosVision. All rights reserved.</p>
       </footer>
     </div>
   );

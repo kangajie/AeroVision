@@ -123,9 +123,9 @@ export default function AdminLayout() {
             </svg>
           </button>
           <div className="w-8 h-8 rounded bg-[var(--color-surface-soft)] flex items-center justify-center border border-[var(--color-hairline)] overflow-hidden">
-            <img src="/logo_poliwangi.png" alt="AeroVision Logo" className="w-full h-full object-contain p-0.5" />
+            <img src="/logo_poliwangi.png" alt="AerosVision Logo" className="w-full h-full object-contain p-0.5" />
           </div>
-          <h1 className="heading-sm-mixed text-[var(--color-ink)] m-0 hidden sm:block">AeroVision</h1>
+          <h1 className="heading-sm-mixed text-[var(--color-ink)] m-0 hidden sm:block">AerosVision</h1>
         </div>
 
         <div className="flex items-center gap-3">
@@ -264,7 +264,7 @@ export default function AdminLayout() {
 
           <footer className="w-full bg-[var(--color-surface-card)] text-center py-2.5 border-t border-[var(--color-hairline)] relative z-20 flex-shrink-0">
             <p className="caption-sm text-[var(--color-mute)] m-0">
-              &copy; 2026 AeroVision. All rights reserved.
+              &copy; 2026 AerosVision. All rights reserved.
             </p>
           </footer>
         </main>
