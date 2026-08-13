@@ -122,9 +122,7 @@ export default function AdminLayout() {
               <line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" />
             </svg>
           </button>
-          <div className="w-8 h-8 rounded bg-[var(--color-surface-soft)] flex items-center justify-center border border-[var(--color-hairline)] overflow-hidden">
-            <img src="/logo_poliwangi.png" alt="AerOSVision Logo" className="w-full h-full object-contain p-0.5" />
-          </div>
+          <img src="/logo_poliwangi.png" alt="AerOSVision Logo" className="w-10 h-10 object-contain" />
           <h1 className="heading-sm-mixed text-[var(--color-ink)] m-0 hidden sm:block">AerOSVision</h1>
         </div>
 

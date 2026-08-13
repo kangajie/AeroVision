@@ -220,9 +220,7 @@ export default function LiveViewPage() {
       {/* ── Topbar ── */}
       <header className="h-[56px] flex-shrink-0 bg-[var(--color-surface-card)] border-b border-[var(--color-hairline)] flex items-center justify-between px-4 z-50 relative">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded bg-[var(--color-surface-soft)] flex items-center justify-center border border-[var(--color-hairline)] overflow-hidden">
-            <img src="/logo_poliwangi.png" alt="Logo" className="w-full h-full object-contain p-0.5" />
-          </div>
+          <img src="/logo_poliwangi.png" alt="Logo" className="w-10 h-10 object-contain" />
           <h1 className="heading-sm-mixed text-[var(--color-ink)] m-0">AerOSVision</h1>
           {/* Camera count badge */}
           {cameras.length > 0 && (

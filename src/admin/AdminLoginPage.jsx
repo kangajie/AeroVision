@@ -45,7 +45,7 @@ export default function AdminLoginPage() {
           />
           <div className="relative z-10 mt-6 text-center">
             <div className="flex items-center justify-center gap-2 mb-2">
-              <img src="/logo_poliwangi.png" alt="AerOSVision" className="w-8 h-8 object-contain" />
+              <img src="/logo_poliwangi.png" alt="AerOSVision" className="w-12 h-12 object-contain" />
               <span className="utility-xs tracking-widest text-[var(--color-mute)] font-bold">AEROSVISION</span>
             </div>
             <h2 className="heading-lg text-[var(--color-ink)]">CCTV Surveillance</h2>
