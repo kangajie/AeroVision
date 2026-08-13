@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+@import './tokens.css';
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base custom classes to match IBM Plex */
+.font-sans {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+.font-mono-num {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Remove default scrollbars for cleaner look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.doc-card {
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.3s ease;
+}
+.doc-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.product-card {
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.button-primary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border-radius: var(--radius-full);
+  padding: 10px 24px;
+  font-weight: 700;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(247, 165, 1, 0.4);
+}
+
+.button-primary:hover {
+  background-color: var(--color-primary-pressed);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px -2px rgba(247, 165, 1, 0.5);
+}
+.button-primary:active {
+  transform: translateY(0);
+}
+::-webkit-scrollbar-track {
+  background: var(--color-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-hairline);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ash);
+}
+
+/* Count up animation keyframes for odometer effect */
+@keyframes countUp {
+  0% { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.animate-count-up {
+  animation: countUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* Page Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slide-up {
+  opacity: 0;
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Custom styles for Layout */
+.app-layout {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr) 280px;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--spacing-section);
+  height: 100vh;
+}
+
+@media (max-width: 1023px) {
+  .app-layout {
+    grid-template-columns: 60px minmax(0, 1fr) 200px;
+  }
+}
+
+@media (max-width: 767px) {
+  .app-layout {
+    grid-template-columns: 60px minmax(0, 1fr) 0px;
+    display: flex;
+    flex-direction: column;
+  }
+}

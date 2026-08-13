@@ -1,0 +1,91 @@
+/* PostHog Design Tokens - Poliwangi CCTV Surveillance */
+
+:root {
+  /* Colors */
+  --color-primary: #f7a501;
+  --color-primary-pressed: #dd9001;
+  --color-primary-active: #b17816;
+  --color-on-primary: #23251d;
+  --color-on-dark: #23251d;
+  
+  --color-ink: #23251d;
+  --color-body: #4d4f46;
+  --color-charcoal: #33342d;
+  --color-mute: #6c6e63;
+  --color-ash: #9b9c92;
+  --color-stone: #b6b7af;
+  
+  --color-hairline: #bfc1b7;
+  --color-hairline-soft: #dcdfd2;
+  
+  --color-canvas: #eeefe9;
+  --color-surface-soft: #e5e7e0;
+  --color-surface-card: #ffffff;
+  --color-surface-doc: #fcfcfa;
+  --color-surface-dark: #23251d;
+  
+  --color-link-blue: #1d4ed8;
+  --color-link-teal: #1078a3;
+  
+  --color-accent-blue: #2c84e0;
+  --color-accent-blue-soft: #dceaf6;
+  --color-accent-red: #cd4239;
+  --color-accent-red-soft: #f7d6d3;
+  --color-accent-green: #2c8c66;
+  --color-accent-green-soft: #d9eddf;
+  --color-accent-purple: #7c44a6;
+  --color-accent-purple-soft: #e7d8ee;
+  
+  --color-focus-ring: rgba(59, 130, 246, 0.5);
+
+  /* Spacing */
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 32px;
+  --spacing-section: 80px;
+
+  /* Border & Radius */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+  
+  /* Class Colors (Overrides from previous to fit pallete better if needed, but we keep distinct ones) */
+  --class-person: var(--color-accent-blue);
+  --class-car: var(--color-accent-green);
+  --class-truck: var(--color-primary);
+  --class-bus: var(--color-accent-purple);
+  --class-motorcycle: var(--color-accent-red);
+}
+
+/* Typography Classes */
+.display-xl { font-size: 36px; font-weight: 700; line-height: 1.5; }
+.display-lg { font-size: 24px; font-weight: 800; line-height: 1.33; letter-spacing: -0.6px; }
+.heading-lg { font-size: 21px; font-weight: 700; line-height: 1.4; }
+.heading-md { font-size: 20px; font-weight: 700; line-height: 1.4; }
+.heading-sm { font-size: 18px; font-weight: 700; line-height: 1.5; text-transform: uppercase; }
+.heading-sm-mixed { font-size: 18px; font-weight: 600; line-height: 1.56; }
+
+.body-md { font-size: 16px; font-weight: 400; line-height: 1.5; }
+.body-strong { font-size: 16px; font-weight: 600; line-height: 1.5; }
+.body-sm { font-size: 15px; font-weight: 400; line-height: 1.71; }
+.body-sm-strong { font-size: 15px; font-weight: 600; line-height: 1.71; }
+.body-xs { font-size: 14px; font-weight: 500; line-height: 1.43; }
+
+.caption-md { font-size: 14px; font-weight: 700; line-height: 1.71; }
+.caption-sm { font-size: 13px; font-weight: 500; line-height: 1.5; }
+.caption-xs { font-size: 12px; font-weight: 600; line-height: 1.33; text-transform: uppercase; }
+.utility-xs { font-size: 12px; font-weight: 700; line-height: 1.33; text-transform: uppercase; }
+
+.link-md { font-size: 16px; font-weight: 400; line-height: 1.5; }
+.button-md { font-size: 14px; font-weight: 700; line-height: 1.5; }
+.button-sm { font-size: 13px; font-weight: 500; line-height: 1; }
+.code-sm { font-size: 14px; font-weight: 400; line-height: 1.43; }
+
+/* Global Components removed to index.css for better handling */
