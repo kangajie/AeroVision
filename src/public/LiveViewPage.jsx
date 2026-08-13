@@ -16,9 +16,7 @@ const CLASS_COLORS = {
 // Grid layout berdasarkan jumlah kamera aktif
 function getGridClass(count) {
   if (count === 1) return 'grid-cols-1';
-  if (count === 2) return 'grid-cols-2';
-  if (count <= 4) return 'grid-cols-2';
-  return 'grid-cols-2';
+  return 'grid-cols-1 md:grid-cols-2';
 }
 
 // ── CameraPanel: satu panel per kamera ───────────────────────────────────────
@@ -236,23 +234,27 @@ export default function LiveViewPage() {
           {/* Alarm toggle */}
           <button
             onClick={() => setAudioEnabled(!audioEnabled)}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border utility-xs font-bold transition-all ${audioEnabled
+            className={`flex items-center gap-1.5 px-2 sm:px-3 py-1.5 rounded-full border utility-xs font-bold transition-all ${audioEnabled
               ? 'bg-[var(--color-accent-red-soft)] border-[var(--color-accent-red)] text-[var(--color-accent-red)]'
               : 'bg-[var(--color-surface-soft)] border-[var(--color-hairline)] text-[var(--color-mute)] hover:border-[var(--color-ash)]'
             }`}
+            title={audioEnabled ? 'Turn Alarm Off' : 'Turn Alarm On'}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               {audioEnabled
                 ? <path d="M11 5L6 9H2v6h4l5 4V5z M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
                 : <path d="M11 5L6 9H2v6h4l5 4V5z M23 9l-6 6 M17 9l6 6" />}
             </svg>
-            {audioEnabled ? 'ALARM ON' : 'ALARM OFF'}
+            <span className="hidden sm:inline">{audioEnabled ? 'ALARM ON' : 'ALARM OFF'}</span>
           </button>
 
           {/* System Status */}
-          <div className={`px-3 py-1.5 rounded-full border flex items-center gap-2 ${isConnected ? 'border-[var(--color-accent-green)] bg-[var(--color-accent-green-soft)] text-[var(--color-accent-green)]' : 'border-[var(--color-accent-red)] bg-[var(--color-accent-red-soft)] text-[var(--color-accent-red)]'}`}>
+          <div 
+            className={`px-2 sm:px-3 py-1.5 rounded-full border flex items-center gap-2 ${isConnected ? 'border-[var(--color-accent-green)] bg-[var(--color-accent-green-soft)] text-[var(--color-accent-green)]' : 'border-[var(--color-accent-red)] bg-[var(--color-accent-red-soft)] text-[var(--color-accent-red)]'}`}
+            title={isConnected ? 'System Online' : 'System Offline'}
+          >
             <div className={`w-2 h-2 rounded-full ${isConnected ? 'bg-[var(--color-accent-green)] animate-pulse' : 'bg-[var(--color-accent-red)]'}`} />
-            <span className="utility-xs font-bold">{isConnected ? '● SYSTEM ONLINE' : '● SYSTEM OFFLINE'}</span>
+            <span className="utility-xs font-bold hidden sm:inline">{isConnected ? 'SYSTEM ONLINE' : 'SYSTEM OFFLINE'}</span>
           </div>
 
           <button

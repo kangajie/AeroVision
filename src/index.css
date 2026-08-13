@@ -112,25 +112,4 @@ body {
   animation: float 4s ease-in-out infinite;
 }
 
-/* Custom styles for Layout */
-.app-layout {
-  display: grid;
-  grid-template-columns: 240px minmax(0, 1fr) 280px;
-  grid-template-rows: auto 1fr auto;
-  gap: var(--spacing-section);
-  height: 100vh;
-}
 
-@media (max-width: 1023px) {
-  .app-layout {
-    grid-template-columns: 60px minmax(0, 1fr) 200px;
-  }
-}
-
-@media (max-width: 767px) {
-  .app-layout {
-    grid-template-columns: 60px minmax(0, 1fr) 0px;
-    display: flex;
-    flex-direction: column;
-  }
-}

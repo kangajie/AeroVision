@@ -562,7 +562,7 @@ export default function LogPage() {
           >
             <p className="utility-xs text-[var(--color-mute)] mb-1">{s.label}</p>
             <div className="flex items-center justify-between">
-              <span className="font-mono-num font-bold text-[var(--color-ink)]" style={{ fontSize: 26 }}>{s.count}</span>
+              <span className="font-mono-num font-bold text-[var(--color-ink)] text-xl sm:text-[26px] leading-none">{s.count}</span>
               <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: s.bg, color: s.color }}>
                 <TypeIcon type={s.key} size={16} />
               </div>
@@ -583,7 +583,7 @@ export default function LogPage() {
               <button
                 key={key}
                 onClick={() => handleTabChange(key)}
-                className={`flex items-center gap-1.5 px-3 py-2 border-b-2 body-xs font-semibold transition-all whitespace-nowrap ${
+                className={`flex items-center gap-1.5 px-2 sm:px-3 py-2 border-b-2 body-xs font-semibold transition-all whitespace-nowrap ${
                   isActive
                     ? 'border-[var(--color-primary)] text-[var(--color-primary)]'
                     : 'border-transparent text-[var(--color-mute)] hover:text-[var(--color-ink)]'

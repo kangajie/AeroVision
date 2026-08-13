@@ -205,7 +205,7 @@ export default function DashboardOverview() {
         <div className="lg:col-span-2 bg-[var(--color-surface-card)] rounded-[var(--radius-lg)] border border-[var(--color-hairline)] p-4 shadow-sm overflow-hidden">
           <h2 className="heading-sm text-[var(--color-ink)] m-0 mb-4">Detection Trend (History)</h2>
           <div className="w-full overflow-x-auto">
-            <div className="min-w-[500px]">
+            <div className="min-w-0">
               <ResponsiveContainer width="100%" height={180}>
                 {trendData.length > 0 ? (
                   <LineChart data={trendData} margin={{ top: 0, right: 8, left: -24, bottom: 0 }}>
@@ -309,7 +309,7 @@ export default function DashboardOverview() {
             </div>
           </div>
           <div className="w-full overflow-x-auto">
-            <div className="min-w-[400px]">
+            <div className="min-w-0">
               {inOutData.length > 0 ? (
                 <ResponsiveContainer width="100%" height={130}>
                   <BarChart data={inOutData} margin={{ top: 0, right: 4, left: -28, bottom: 0 }} barGap={2}>
