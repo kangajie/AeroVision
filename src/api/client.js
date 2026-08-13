@@ -14,7 +14,11 @@ function getToken() {
 }
 
 function buildHeaders(extra = {}) {
-  const headers = { 'Content-Type': 'application/json', ...extra };
+  const headers = { 
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': '69420', // Bypass Ngrok warning page
+    ...extra 
+  };
   const token = getToken();
   if (token) headers['Authorization'] = `Bearer ${token}`;
   return headers;
