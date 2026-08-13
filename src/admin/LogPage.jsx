@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { apiGet, apiDelete } from '../api/client';
+import { apiGet, apiDelete, BASE_URL } from '../api/client';
 
 // ─── Konstanta ────────────────────────────────────────────────────────────────
 
@@ -477,6 +477,20 @@ export default function LogPage() {
     }
   };
 
+  const handleDownloadCSV = () => {
+    const token = localStorage.getItem('auth_token');
+    if (!token) {
+      alert("Anda belum login!");
+      return;
+    }
+    const params = new URLSearchParams({ token });
+    const tabConfig = EVENT_TYPES[activeTab];
+    if (tabConfig?.apiValue) params.set('event_type', tabConfig.apiValue);
+    
+    const downloadUrl = `${BASE_URL}/api/events/export?${params.toString()}`;
+    window.open(downloadUrl, '_blank');
+  };
+
   // ── Summary cards data ─────────────────────────────────────────────────────
   const summaryCards = [
     { key: 'all',           label: 'Total Log',     count: summary.total,         color: '#6366f1', bg: 'rgba(99,102,241,.1)' },
@@ -510,6 +524,17 @@ export default function LogPage() {
               <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
             </svg>
             Refresh
+          </button>
+          <button
+            onClick={handleDownloadCSV}
+            className="flex items-center gap-2 px-3 py-2 bg-white border border-[var(--color-hairline)] rounded-[var(--radius-md)] body-xs font-semibold text-[var(--color-ink)] hover:bg-[var(--color-surface-soft)] transition-colors shadow-sm whitespace-nowrap"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download CSV
           </button>
           <button
             onClick={deleteAllLogs}
