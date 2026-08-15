@@ -7,17 +7,28 @@
  * ─────────────────────────────────────────────────────────────
  */
 
-export const BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
+function getBaseUrl() {
+  const envUrl = import.meta.env.VITE_BACKEND_URL;
+  if (envUrl && envUrl.startsWith('http')) {
+    return envUrl;
+  }
+  // Dynamic local IP detection (otomatis mendeteksi IP saat pindah WiFi)
+  const protocol = window.location.protocol;
+  const hostname = window.location.hostname;
+  return `${protocol}//${hostname}:8000`;
+}
+
+export const BASE_URL = getBaseUrl();
 
 function getToken() {
   return localStorage.getItem('auth_token') || '';
 }
 
 function buildHeaders(extra = {}) {
-  const headers = { 
+  const headers = {
     'Content-Type': 'application/json',
     'ngrok-skip-browser-warning': '69420', // Bypass Ngrok warning page
-    ...extra 
+    ...extra
   };
   const token = getToken();
   if (token) headers['Authorization'] = `Bearer ${token}`;

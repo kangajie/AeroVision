@@ -9,7 +9,7 @@ export default defineConfig({
     react()
   ],
   server: {
-    host: 'localhost',
+    host: true, // Wajib agar bisa diakses HP
     port: 5173,
     strictPort: false,
   }
