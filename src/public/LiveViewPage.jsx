@@ -261,8 +261,8 @@ export default function LiveViewPage() {
             onClick={() => navigate('/admin/login')}
             className="utility-xs text-[var(--color-mute)] hover:text-[var(--color-ink)] px-2 py-1.5 rounded hover:bg-[var(--color-surface-soft)] transition-colors hidden sm:flex items-center gap-1"
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="7" r="4" /><path d="M4 20v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2" /></svg>
-            Admin
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            Login
           </button>
         </div>
       </header>
