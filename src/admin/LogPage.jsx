@@ -438,10 +438,15 @@ export default function LogPage() {
     }
   }, [page, activeTab]);
 
+  // ── Fetch summary (Hanya awal load & setelah aksi manual) ──
+  useEffect(() => {
+    fetchSummary();
+  }, [fetchSummary]);
+
+  // ── Fetch logs (Setiap ganti tab / halaman) ──
   useEffect(() => {
     fetchLogs();
-    fetchSummary();
-  }, [fetchLogs, fetchSummary]);
+  }, [fetchLogs]);
 
   // ── Handlers ───────────────────────────────────────────────────────────────
   const handleTabChange = (key) => { setActiveTab(key); setPage(1); };
@@ -552,7 +557,7 @@ export default function LogPage() {
           <button
             onClick={markAllAsRead}
             disabled={summary.total === 0 && activeTab === 'all'}
-            className="flex items-center gap-2 px-3 py-2 bg-[var(--color-primary)]/10 border border-transparent rounded-[var(--radius-md)] body-xs font-semibold text-[var(--color-primary)] hover:bg-[var(--color-primary)]/20 transition-colors shadow-sm whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 px-3 py-2 bg-white border border-[var(--color-hairline)] rounded-[var(--radius-md)] body-xs font-semibold text-[var(--color-ink)] hover:bg-[var(--color-surface-soft)] transition-colors shadow-sm whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M20 6L9 17l-5-5"/>
