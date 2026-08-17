@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { apiGet, apiDelete, BASE_URL } from '../api/client';
+import { apiGet, apiDelete, apiPost, BASE_URL } from '../api/client';
 
 // ─── Konstanta ────────────────────────────────────────────────────────────────
 
@@ -477,6 +477,19 @@ export default function LogPage() {
     }
   };
 
+  const markAllAsRead = async () => {
+    try {
+      const params = new URLSearchParams();
+      if (EVENT_TYPES[activeTab]?.apiValue) params.set('event_type', EVENT_TYPES[activeTab].apiValue);
+      await apiPost(`/api/events/read-all?${params.toString()}`);
+      fetchSummary(); // Refresh jumlah unread agar menjadi 0
+      // Kita juga bisa refetch logs jika ingin ada indikator UI per-baris, tapi untuk sekarang summary cukup
+    } catch (err) {
+      console.error('[LogPage] Mark read error:', err);
+      alert('Gagal menandai log sebagai dibaca.');
+    }
+  };
+
   const handleDownloadCSV = () => {
     const token = localStorage.getItem('auth_token');
     if (!token) {
@@ -537,6 +550,16 @@ export default function LogPage() {
             Download CSV
           </button>
           <button
+            onClick={markAllAsRead}
+            disabled={summary.total === 0 && activeTab === 'all'}
+            className="flex items-center gap-2 px-3 py-2 bg-[var(--color-primary)]/10 border border-transparent rounded-[var(--radius-md)] body-xs font-semibold text-[var(--color-primary)] hover:bg-[var(--color-primary)]/20 transition-colors shadow-sm whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M20 6L9 17l-5-5"/>
+            </svg>
+            Tandai Dibaca
+          </button>
+          <button
             onClick={deleteAllLogs}
             className="flex items-center gap-2 px-3 py-2 bg-white border border-red-200 rounded-[var(--radius-md)] body-xs font-semibold text-red-600 hover:bg-red-50 transition-colors shadow-sm whitespace-nowrap"
           >
@@ -593,7 +616,7 @@ export default function LogPage() {
                 {key !== 'all' && summary[key] > 0 && (
                   <span className="px-1.5 py-0.5 rounded-full text-[10px] font-bold"
                     style={{ backgroundColor: TYPE_STYLE[key]?.bg, color: TYPE_STYLE[key]?.text }}>
-                    {summary[key]}
+                    {summary[key]} Baru
                   </span>
                 )}
               </button>
